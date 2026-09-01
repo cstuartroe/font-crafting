@@ -83,8 +83,8 @@ HTML_TEMPLATE = """
 
         .preview-box {
             font-family: 'TestFont', sans-serif;
-            font-size: 48px;
-            line-height: 2;
+            font-size: 60px;
+            line-height: 1;
             white-space: pre;
             width: 100%;
             min-height: 300px;
@@ -107,8 +107,8 @@ HTML_TEMPLATE = """
 
     <div class="controls">
         <label for="size-slider">Font Size:</label>
-        <input type="range" id="size-slider" min="12" max="144" value="48">
-        <span id="size-display">48px</span>
+        <input type="range" id="size-slider" min="12" max="144" value="60">
+        <span id="size-display">60px</span>
     </div>
 
     <textarea class="preview-input-box" id="preview-text-input" placeholder="Type text here to test your font..."></textarea>
