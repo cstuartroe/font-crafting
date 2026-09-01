@@ -647,6 +647,7 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
                 left_side_bearing = spec.DEFAULT_BEARING
 
             out.append(spec.CharacterSpec(c.letter, [c.path], left_side_bearing=left_side_bearing))
+            out.append(spec.CharacterSpec(c.letter + "v", [c.path], left_side_bearing=left_side_bearing))
 
             if c.ashape == AShape.REGULAR:
                 a_curve = regular_a_curve
