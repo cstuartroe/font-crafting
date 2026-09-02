@@ -297,6 +297,8 @@ looped_e_curve = (
     .continue_curve(0, -100, 200, 0)
 )
 
+E_BEARING = spec.DEFAULT_BEARING - 15
+
 lone_v_curves = [
     spec.BezierPath((-spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING), [])
     .add_line(0, 400)
@@ -744,8 +746,27 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
             else:
                 raise ValueError
 
-            out.append(spec.CharacterSpec(c.letter + "e", [e_curve, c_path.translate(e_width, 0)], left_side_bearing=spec.DEFAULT_BEARING - 15))
-            out.append(spec.CharacterSpec(c.letter + "o", [e_curve, c_path.translate(e_width, 0), a_curve.translate(e_width + c.width, 0)], left_side_bearing=spec.DEFAULT_BEARING - 15))
+            out += [
+                spec.CharacterSpec(
+                    c.letter + "e",
+                    [e_curve, c_path.translate(e_width, 0)],
+                    left_side_bearing=E_BEARING,
+                ),
+                spec.CharacterSpec(
+                    c.letter + "o",
+                    [e_curve, c_path.translate(e_width, 0), a_curve.translate(e_width + c.width, 0)],
+                    left_side_bearing=E_BEARING),
+                spec.CharacterSpec(
+                    c.letter + "Y",
+                    [e_curve, c_path.translate(e_width, 0), i_curve.translate(e_width, 0).add_line(e_width + c.width, 500)],
+                    left_side_bearing=E_BEARING,
+                ),
+                spec.CharacterSpec(
+                    c.letter + "W",
+                    [e_curve, c_path.translate(e_width, 0), i_curve.translate(e_width, 0).add_line(e_width + c.width, 500), a_curve.translate(e_width + c.width, 0)],
+                    left_side_bearing=E_BEARING,
+                )
+            ]
 
         out += [
             spec.CharacterSpec("M", anusvara_curves),
