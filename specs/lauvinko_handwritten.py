@@ -5,7 +5,7 @@ import math
 from . import spec
 
 
-k_curve = (
+k_curves = [
     spec.BezierPath((0, 0), [])
     .add_line(0, 200)
     .add_curve(0, 100, 100, 0, 100, 400)
@@ -14,54 +14,54 @@ k_curve = (
     .continue_curve(0, -100, 400, 200)
     # .continue_curve(-75, -75, 325, -100)
     .add_line(400, 100)
-    .add_curve(0, -100, -50, -50, 325, -100)
-)
+    .add_curve(0, -100, -50, -50, 325, -100),
+]
 
-g_curve = (
+g_curves = [
     spec.BezierPath((0, 0), [])
     .add_line(0, 200)
     .add_curve(0, 100, 100, 0, 100, 400)
     .continue_curve(0, -100, 200, 200)
     # .continue_curve(-75, -75, 125, -100)
     .add_line(200, 100)
-    .add_curve(0, -100, -50, -50, 125, -100)
-)
+    .add_curve(0, -100, -50, -50, 125, -100),
+]
 
-ng_curve = (
+ng_curves = [
     spec.BezierPath((300, 375), [])
     .add_curve(-25, 25, -25, 0, 200, 400)
     .add_curve(-100, 0, 0, -150, 0, 200)
     .continue_curve(100, 0, 200, 0)
-    .add_curve(25, 0, 25, 25, 300, 25)
-)
+    .add_curve(25, 0, 25, 25, 300, 25),
+]
 
-c_curve = (
+c_curves = [
     spec.BezierPath((300 - spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING), [])
     .add_line(300, 400)
     .add_line(300, 200)
     .add_curve(0, -150, -100, 0, 100, 0)
-    .add_curve(-25, 0, -25, 25, 0, 25)
-)
+    .add_curve(-25, 0, -25, 25, 0, 25),
+]
 
-j_curve = (
+j_curves = [
     spec.BezierPath((300, 375), [])
     .add_curve(-25, 25, -25, 0, 200, 400)
     .add_curve(-100, 0, 0, -100, 0, 300)
     .continue_curve(100, 0, 200, 200)
     .add_curve(-100, 0, 0, -100, 0, 100)
     .continue_curve(100, 0, 200, 0)
-    .add_curve(25, 0, 25, 25, 300, 25)
-)
+    .add_curve(25, 0, 25, 25, 300, 25),
+]
 
-ny_curve = (
+ny_curves = [
     spec.BezierPath((0, 375), [])
     .add_curve(25, 25, 25, 0, 100, 400)
     .add_curve(100, 0, 0, -150, 300, 200)
     .continue_curve(-100, 0, 100, 0)
-    .add_curve(-25, 0, -25, 25, 0, 25)
-)
+    .add_curve(-25, 0, -25, 25, 0, 25),
+]
 
-t_curve = (
+t_curves = [
     spec.BezierPath((200, 400), [])
     .add_line(200, 200)
     .add_curve(0, -100, -100, 0, 100, 0)
@@ -70,48 +70,48 @@ t_curve = (
     .continue_curve(0, -100, 400, 200)
     # .continue_curve(-75, -75, 325, -100)
     .add_line(400, 100)
-    .add_curve(0, -100, -50, -50, 325, -100)
-)
+    .add_curve(0, -100, -50, -50, 325, -100),
+]
 
-d_curve = (
+d_curves = [
     spec.BezierPath((-spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING), [])
     .add_line(0, 400)
     .add_line(0, 200)
     .add_curve(0, -150, 100, 0, 200, 0)
     .continue_curve(0, 100, 400, 100)
     .continue_curve(-100, 0, 200, 200)
-    .add_line(0, 200)
-)
+    .add_line(0, 200),
+]
 
-n_curve = (
+n_curves = [
     spec.BezierPath((-spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING), [])
     .add_line(0, 400)
     .add_line(0, 200)
     .add_curve(0, -150, 100, 0, 200, 0)
-    .add_curve(25, 0, 25, 25, 300, 25)
-)
+    .add_curve(25, 0, 25, 25, 300, 25),
+]
 
-p_curve = (
+p_curves = [
     spec.BezierPath((-spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING), [])
     .add_line(0, 400)
     .add_line(0, 200)
     .add_curve(0, -100, 100, 0, 100, 0)
     .continue_curve(0, 100, 200, 200)
     .add_line(200, 300)
-    .add_curve(0, 25, -25, 25, 175, 400)
-)
+    .add_curve(0, 25, -25, 25, 175, 400),
+]
 
-b_curve = (
-    spec.BezierPath((200, 375), [])
-    .add_curve(-25, 25, -25, 0, 100, 400)
-    .add_curve(-100, 0, 0, -100, 0, 200)
-    .add_line(0, 0)
+b_curves = [
+    spec.BezierPath((0, 0), [])
     .add_line(0, 200)
+    .add_curve(0, 100, 100, 0, 100, 400)
+    .add_curve(25, 0, 25, -25, 200, 375),
+    spec.BezierPath((0, 200), [])
     .add_curve(100, 0, 0, -100, 200, 100)
-    .add_curve(0, -100, -50, -50, 125, -100)
-)
+    .add_curve(0, -100, -50, -50, 125, -100),
+]
 
-m_curve = (
+m_curves = [
     spec.BezierPath((- spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING), [])
     .add_line(0, 400)
     .add_line(0, 300)
@@ -120,18 +120,18 @@ m_curve = (
     .continue_curve(100, 0, 200, 0)
     .continue_curve(0, 150, 400, 200)
     .add_line(400, 300)
-    .add_curve(0, 25, -25, 25, 375, 400)
-)
+    .add_curve(0, 25, -25, 25, 375, 400),
+]
 
-w_curve = (
+w_curves = [
     spec.BezierPath((0, 200), [])
     .add_curve(0, -150, 100, 0, 200, 0)
     .continue_curve(0, 150, 400, 200)
     .continue_curve(-100, 0, 200, 400)
-    .continue_curve(0, -150, 0, 200)
-)
+    .continue_curve(0, -150, 0, 200),
+]
 
-l_curve = (
+l_curves = [
     spec.BezierPath((0, 0), [])
     .add_line(0, 200)
     .add_curve(0, 100, 100, 0, 100, 400)
@@ -139,20 +139,20 @@ l_curve = (
     .continue_curve(100, 0, 300, 0)
     .continue_curve(0, 100, 400, 200)
     .add_line(400, 300)
-    .add_curve(0, 25, -25, 25, 375, 400)
-)
+    .add_curve(0, 25, -25, 25, 375, 400),
+]
 
-r_curve = (
+r_curves = [
     spec.BezierPath((400 - spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING), [])
     .add_line(400, 400)
     .add_line(400, 200)
     .add_curve(0, -150, -100, 0, 200, 0)
     .continue_curve(0, 100, 0, 100)
     .continue_curve(100, 0, 200, 200)
-    .add_line(400, 200)
-)
+    .add_line(400, 200),
+]
 
-y_curve = (
+y_curves = [
     spec.BezierPath((-spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING), [])
     .add_line(0, 400)
     .add_line(0, 200)
@@ -161,29 +161,29 @@ y_curve = (
     .add_curve(0, -100, 100, 0, 300, 0)
     .continue_curve(0, 100, 400, 200)
     .add_line(400, 300)
-    .add_curve(0, 25, -25, 25, 375, 400)
-)
+    .add_curve(0, 25, -25, 25, 375, 400),
+]
 
-s_curve = (
-    spec.BezierPath((-spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING), [])
+s_curves = [
+    spec.BezierPath((0, 0), [])
     .add_line(0, 400)
-    .add_line(0, 0)
-    .add_line(0, 200)
+    .add_line(-spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING),
+    spec.BezierPath((0, 200), [])
     .add_curve(100, 0, 0, 100, 200, 300)
-    .add_curve(0, 25, -25, 25, 175, 400)
-)
+    .add_curve(0, 25, -25, 25, 175, 400),
+]
 
-x_curve = (
+x_curves = [
     spec.BezierPath((0, 0), [])
     .add_line(0, 200)
     .add_curve(0, 150, 100, 0, 200, 400)
     .continue_curve(0, -100, 400, 300)
     .continue_curve(-100, 0, 200, 200)
     .add_curve(100, 0, 0, -100, 400, 100)
-    .add_curve(0, -100, -50, -50, 325, -100)
-)
+    .add_curve(0, -100, -50, -50, 325, -100),
+]
 
-h_curve = (
+h_curves = [
     spec.BezierPath((-spec.DEFAULT_BEARING, 400 - spec.DEFAULT_BEARING), [])
     .add_line(0, 400)
     .add_curve(0, -100, 0, -100, 0, 200)
@@ -193,8 +193,8 @@ h_curve = (
     .continue_curve(0, -100, 400, 200)
     # .continue_curve(-75, -75, 325, -100)
     .add_line(400, 100)
-    .add_curve(0, -100, -50, -50, 325, -100)
-)
+    .add_curve(0, -100, -50, -50, 325, -100),
+]
 
 
 class AShape(enum.Enum):
@@ -250,8 +250,8 @@ class EShape(enum.Enum):
 
 
 straight_e_curve = (
-    spec.BezierPath((200, 0), [])
-    .add_curve(-100, 0, -50, 0, 100, 0)
+    spec.BezierPath((200, 100), [])
+    .add_curve(0, -50, -50, 0, 100, 0)
     .continue_curve(0, 50, 0, 100)
     .continue_curve(50, 0, 100, 200)
     .add_line(200, 200)
@@ -557,7 +557,7 @@ right_bracket_curves = [
 @dataclasses.dataclass
 class Consonant:
     letter: str
-    path: spec.BezierPath
+    paths: list[spec.BezierPath]
     width: int
     ushape: UShape
     eshape: EShape
@@ -565,31 +565,31 @@ class Consonant:
     has_left_serif: bool = False
 
 
-CONSONANTS = [
-    Consonant("k", k_curve, 400, UShape.CONTINUED, EShape.STRAIGHT),
-    Consonant("g", g_curve, 200, UShape.CONTINUED, EShape.STRAIGHT),
-    Consonant("q", ng_curve, 300, UShape.ATTACHED, EShape.FAR_CURVED),
+CONSONANTS: list[Consonant] = [
+    Consonant("k", k_curves, 400, UShape.CONTINUED, EShape.STRAIGHT),
+    Consonant("g", g_curves, 200, UShape.CONTINUED, EShape.STRAIGHT),
+    Consonant("q", ng_curves, 300, UShape.ATTACHED, EShape.FAR_CURVED),
 
-    Consonant("c", c_curve, 300, UShape.FAR_CURVED, EShape.LOOPED),
-    Consonant("j", j_curve, 300, UShape.ATTACHED, EShape.UP_CURVED),
-    Consonant("N", ny_curve, 300, UShape.FAR_CURVED, EShape.LOOPED),
+    Consonant("c", c_curves, 300, UShape.FAR_CURVED, EShape.LOOPED),
+    Consonant("j", j_curves, 300, UShape.ATTACHED, EShape.UP_CURVED),
+    Consonant("N", ny_curves, 300, UShape.FAR_CURVED, EShape.LOOPED),
 
-    Consonant("t", t_curve, 400, UShape.CONTINUED, EShape.NEAR_CURVED),
-    Consonant("d", d_curve, 400, UShape.NEAR_CURVED, EShape.FAR_CURVED, ashape=AShape.FAR, has_left_serif=True),
-    Consonant("n", n_curve, 300, UShape.ATTACHED, EShape.FAR_CURVED, has_left_serif=True),
+    Consonant("t", t_curves, 400, UShape.CONTINUED, EShape.NEAR_CURVED),
+    Consonant("d", d_curves, 400, UShape.NEAR_CURVED, EShape.FAR_CURVED, ashape=AShape.FAR, has_left_serif=True),
+    Consonant("n", n_curves, 300, UShape.ATTACHED, EShape.FAR_CURVED, has_left_serif=True),
 
-    Consonant("p", p_curve, 200, UShape.NEAR_CURVED, EShape.NEAR_CURVED, has_left_serif=True),
-    Consonant("b", b_curve, 200, UShape.CONTINUED, EShape.STRAIGHT, ashape=AShape.FAR),
-    Consonant("m", m_curve, 400, UShape.FAR_CURVED, EShape.UP_CURVED, has_left_serif=True),
+    Consonant("p", p_curves, 200, UShape.NEAR_CURVED, EShape.NEAR_CURVED, has_left_serif=True),
+    Consonant("b", b_curves, 200, UShape.CONTINUED, EShape.STRAIGHT, ashape=AShape.FAR),
+    Consonant("m", m_curves, 400, UShape.FAR_CURVED, EShape.UP_CURVED, has_left_serif=True),
 
-    Consonant("w", w_curve, 400, UShape.FAR_CURVED, EShape.FAR_CURVED),
-    Consonant("l", l_curve, 400, UShape.NEAR_CURVED, EShape.STRAIGHT),
-    Consonant("r", r_curve, 400, UShape.FAR_CURVED, EShape.DOUBLE_CURVED),
-    Consonant("y", y_curve, 400, UShape.NEAR_CURVED, EShape.NEAR_CURVED, has_left_serif=True),
+    Consonant("w", w_curves, 400, UShape.FAR_CURVED, EShape.FAR_CURVED),
+    Consonant("l", l_curves, 400, UShape.NEAR_CURVED, EShape.STRAIGHT),
+    Consonant("r", r_curves, 400, UShape.FAR_CURVED, EShape.DOUBLE_CURVED),
+    Consonant("y", y_curves, 400, UShape.NEAR_CURVED, EShape.NEAR_CURVED, has_left_serif=True),
 
-    Consonant("s", s_curve, 200, UShape.FAR_CURVED, EShape.STRAIGHT, ashape=AShape.HIGH, has_left_serif=True),
-    Consonant("x", x_curve, 400, UShape.CONTINUED, EShape.STRAIGHT, ashape=AShape.FAR),
-    Consonant("h", h_curve, 400, UShape.CONTINUED, EShape.NEAR_CURVED, has_left_serif=True),
+    Consonant("s", s_curves, 200, UShape.FAR_CURVED, EShape.STRAIGHT, ashape=AShape.HIGH, has_left_serif=True),
+    Consonant("x", x_curves, 400, UShape.CONTINUED, EShape.STRAIGHT, ashape=AShape.FAR),
+    Consonant("h", h_curves, 400, UShape.CONTINUED, EShape.NEAR_CURVED, has_left_serif=True),
 ]
 
 
@@ -600,7 +600,7 @@ class Vowel:
     has_left_serif: bool = False
 
 
-VOWELS = [
+VOWELS: list[Vowel] = [
     Vowel("v", lone_v_curves, has_left_serif=True),
     Vowel("a", lone_a_curves, has_left_serif=True),
     Vowel("i", lone_i_curves, has_left_serif=True),
@@ -648,8 +648,8 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
             else:
                 left_side_bearing = spec.DEFAULT_BEARING
 
-            out.append(spec.CharacterSpec(c.letter, [c.path], left_side_bearing=left_side_bearing))
-            out.append(spec.CharacterSpec(c.letter + "v", [c.path], left_side_bearing=left_side_bearing))
+            out.append(spec.CharacterSpec(c.letter, c.paths, left_side_bearing=left_side_bearing))
+            out.append(spec.CharacterSpec(c.letter + "v", c.paths, left_side_bearing=left_side_bearing))
 
             if c.ashape == AShape.REGULAR:
                 a_curve = regular_a_curve
@@ -660,26 +660,27 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
             else:
                 raise ValueError
 
-            out.append(spec.CharacterSpec(c.letter + "a", [c.path, a_curve.translate(c.width, 0)], left_side_bearing=left_side_bearing))
+            out.append(spec.CharacterSpec(c.letter + "a", [*c.paths, a_curve.translate(c.width, 0)], left_side_bearing=left_side_bearing))
 
-            out.append(spec.CharacterSpec(c.letter + "i", [c.path, i_curve.add_line(c.width, 500)], left_side_bearing=left_side_bearing))
+            out.append(spec.CharacterSpec(c.letter + "i", [*c.paths, i_curve.add_line(c.width, 500)], left_side_bearing=left_side_bearing))
 
             if c.ushape is UShape.CONTINUED:
                 # assert (c.path.points[-2].x, c.path.points[-2].y) == (c.width, 200)
                 # assert c.path.points[-1].as_tuple() == (0, -100, -75, -75, c.width - 75, -100)
-                assert (c.path.points[-2].x, c.path.points[-2].y) == (c.width, 100)
-                assert c.path.points[-1].as_tuple() == (0, -100, -50, -50, c.width - 75, -100)
+                assert (c.paths[-1].points[-2].x, c.paths[-1].points[-2].y) == (c.width, 100)
+                assert c.paths[-1].points[-1].as_tuple() == (0, -100, -50, -50, c.width - 75, -100)
 
                 out.append(spec.CharacterSpec(
                     c.letter + "u",
                     [
+                        *c.paths[:-1],
                         spec.BezierPath(
-                            start=c.path.start,
-                            points=c.path.points[:-1]
+                            start=c.paths[-1].start,
+                            points=c.paths[-1].points[:-1]
                         )
                         .add_curve(0, -100, 0, -100, c.width, 100)
                         .continue_curve(-100, 0, c.width - 150, -100)
-                        .add_line(-spec.DEFAULT_BEARING, -100)
+                        .add_line(-spec.DEFAULT_BEARING, -100),
                     ],
                     left_side_bearing=0,
                 ))
@@ -687,7 +688,7 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
                 out.append(spec.CharacterSpec(
                     c.letter + "u",
                     [
-                        c.path,
+                        *c.paths,
                         spec.BezierPath((c.width, 25), [])
                         .add_curve(0, -100, -100, 0, c.width - 200, -100)
                         .add_line(-spec.DEFAULT_BEARING, -100)
@@ -698,7 +699,7 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
                 out.append(spec.CharacterSpec(
                     c.letter + "u",
                     [
-                        c.path,
+                        *c.paths,
                         spec.BezierPath((c.width - 20, 40), [])
                         .add_curve(10, -10, 0, -20, c.width, 0)
                         .add_curve(0, -100, -100, 0, c.width - 200, -100)
@@ -710,7 +711,7 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
                 out.append(spec.CharacterSpec(
                     c.letter + "u",
                     [
-                        c.path,
+                        *c.paths,
                         spec.BezierPath((c.width - 38, 53), [])
                         .add_curve(10, -10, 0, -20, c.width, 0)
                         .add_curve(0, -100, -100, 0, c.width - 200, -100)
@@ -722,8 +723,19 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
                 raise ValueError
 
             e_width = 200
-            c_path = c.path
+            c_paths = c.paths
             if c.eshape is EShape.STRAIGHT:
+                assert c.paths[0].start == (0, 0)
+                assert c.paths[0].points[0].x == 0
+
+                c_paths = [
+                    spec.BezierPath(
+                        start=(0, 100),
+                        points=c.paths[0].points,
+                    ),
+                    *c.paths[1:],
+                ]
+
                 e_curve = straight_e_curve
             elif c.eshape is EShape.NEAR_CURVED:
                 e_curve = near_curved_e_curve
@@ -734,13 +746,16 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
             elif c.eshape is EShape.DOUBLE_CURVED:
                 e_curve = double_curved_e_curve
             elif c.eshape is EShape.LOOPED:
-                assert (c.path.points[-2].x, c.path.points[-2].y) == (100, 0)
-                assert c.path.points[-1].as_tuple() == (-25, 0, -25, 25, 0, 25)
+                assert (c.paths[0].points[-2].x, c.paths[0].points[-2].y) == (100, 0)
+                assert c.paths[0].points[-1].as_tuple() == (-25, 0, -25, 25, 0, 25)
 
-                c_path = spec.BezierPath(
-                    start=c.path.start,
-                    points=c.path.points[:-1]
-                )
+                c_paths = [
+                    spec.BezierPath(
+                        start=c.paths[0].start,
+                        points=c.paths[0].points[:-1]
+                    ),
+                    *c.paths[1:],
+                ]
                 e_curve = looped_e_curve
                 e_width = 100
             else:
@@ -749,21 +764,21 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
             out += [
                 spec.CharacterSpec(
                     c.letter + "e",
-                    [e_curve, c_path.translate(e_width, 0)],
+                    [e_curve, *(path.translate(e_width, 0) for path in c_paths)],
                     left_side_bearing=E_BEARING,
                 ),
                 spec.CharacterSpec(
                     c.letter + "o",
-                    [e_curve, c_path.translate(e_width, 0), a_curve.translate(e_width + c.width, 0)],
+                    [e_curve, *(path.translate(e_width, 0) for path in c_paths), a_curve.translate(e_width + c.width, 0)],
                     left_side_bearing=E_BEARING),
                 spec.CharacterSpec(
                     c.letter + "Y",
-                    [e_curve, c_path.translate(e_width, 0), i_curve.translate(e_width, 0).add_line(e_width + c.width, 500)],
+                    [e_curve, *(path.translate(e_width, 0) for path in c_paths), i_curve.translate(e_width, 0).add_line(e_width + c.width, 500)],
                     left_side_bearing=E_BEARING,
                 ),
                 spec.CharacterSpec(
                     c.letter + "W",
-                    [e_curve, c_path.translate(e_width, 0), i_curve.translate(e_width, 0).add_line(e_width + c.width, 500), a_curve.translate(e_width + c.width, 0)],
+                    [e_curve, *(path.translate(e_width, 0) for path in c_paths), i_curve.translate(e_width, 0).add_line(e_width + c.width, 500), a_curve.translate(e_width + c.width, 0)],
                     left_side_bearing=E_BEARING,
                 )
             ]
