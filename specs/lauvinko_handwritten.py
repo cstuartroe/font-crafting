@@ -553,6 +553,22 @@ right_bracket_curves = [
     .continue_curve(-50, -100, 0, -100)
 ]
 
+STAR_DIAG = 200/(2**.5)
+
+star_curves = [
+    spec.BezierPath((0, 200), [])
+    .add_line(200, 0)
+    .add_line(400, 200)
+    .add_line(200, 400)
+    .add_line(0, 200),
+    spec.BezierPath((200 - STAR_DIAG, 200 - STAR_DIAG), [])
+    .add_line(200 - STAR_DIAG, 200 + STAR_DIAG)
+    .add_line(200 + STAR_DIAG, 200 + STAR_DIAG)
+    .add_line(200 + STAR_DIAG, 200 - STAR_DIAG)
+    .add_line(200 - STAR_DIAG, 200 - STAR_DIAG),
+    anusvara_curves[0].translate(200 - AV_RADIUS, 0),
+]
+
 
 @dataclasses.dataclass
 class Consonant:
@@ -804,6 +820,7 @@ class LauvinkoHandwrittenSpec(spec.FontSpec):
             spec.CharacterSpec("-", comma_curves),
             spec.CharacterSpec("(", left_bracket_curves),
             spec.CharacterSpec(")", right_bracket_curves),
+            spec.CharacterSpec("*", star_curves),
         ]
 
         return out
